@@ -60,17 +60,24 @@
 #
 
 # @lc code=start
+from typing import List
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        seen = {}
-        for i, num in enumerate(nums):
-            leftover = target - num
-            if leftover in seen:
-                return [seen[leftover], i]
-            seen[num] = i
-        return None
+        # prevMap = {} # key: value; val: index
+        # for i, n in enumerate(nums):
+        #     diff = target - n
+        #     if diff in prevMap:
+        #         return [prevMap[diff], i]
+        #     prevMap[n] = i
 
 
+
+        preMap = {}
+        for i, value in enumerate(nums):
+            diff = target - value
+            if diff in preMap:
+                return [i, preMap[diff]]
+            preMap[value] = i
         
 # @lc code=end
 
